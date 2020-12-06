@@ -4,10 +4,9 @@ from .models import Board
 # Create your views here.
 
 def home(request):
-    pass
-    # boards = Board.objects.all()
-    # return render(request,'home.html',{'boards':boards})
+    boards = Board.objects.all()
+    return render(request,'home.html',{'boards':boards})
 
 def board_topics(request, pk):
-    board = get_object_or_404(Board, pk=pk)
+    board = get_object_or_404(pk=pk)
     return render(request, 'topics.html', {'board': board})
